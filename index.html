@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {font-family: system-ui, sans-serif; margin:0; display:flex; height:100vh; align-items:center; justify-content:center;}
+    #closed {display:none; text-align:center; padding:2rem;}
+  </style>
+</head>
+<body>
+  <div id="closed">
+    <h1>This page is no longer available</h1>
+    <p>If you think this is a mistake, please contact the organizer.</p>
+  </div>
+
+  <script>
+    // ========= CONFIGURE =========
+    const NOTION_URL = "https://reliable-hisser-553.notion.site/where-winelist?source=copy_link"; // full share link
+    const deadline   = new Date("2025-06-20T12:00:00+09:00"); // local ISO time
+    // =============================
+
+    const now = new Date();
+    if (now < deadline) {
+      window.location.href = NOTION_URL;  // forward before the deadline
+    } else {
+      document.getElementById("closed").style.display = "block"; // show message after
+    }
+  </script>
+</body>
+</html>
